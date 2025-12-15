@@ -1,5 +1,7 @@
-export interface UserDto {
-    id : number
-    username : string
-    email : string   
-}
+import type { IUser } from "../entity/user.js"
+
+
+export interface UserDto extends Omit<IUser, "password"> { }
+export interface UserCreateDto extends Omit<IUser, "id"> { }
+
+

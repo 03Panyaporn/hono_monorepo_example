@@ -1,20 +1,21 @@
 {
   "name": "@repo/domain",
+  "type": "module",
   "private": true,
   "version": "0.0.0",
   "exports": {
-    ".": "./src/index.ts",
-    "./dto": "./src/dto/index.ts"
+    "./*": "./src/*"
   },
   "scripts": {
-    "build" : "tsc -p ./tsconfig.build.json"
+    "build": "tsc -p ./tsconfig.build.json"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-      
     "@repo/typescript-config": "workspace:*"
+  },
+  "dependencies": {
+    "zod": "^4.2.0"
   }
-  
 }
