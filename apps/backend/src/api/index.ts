@@ -34,9 +34,9 @@ api.get('/users',
             }
         }
     }),
-    (c) => {
+    async (c) => {
 
-        let data = userService.findAllUser();
+        let data = await userService.findAllUser();
         return c.json({ "message": "Get User List", data: data })
     })
 
@@ -52,7 +52,13 @@ api.post('/users',
         requestBody: {
             content: {
                 "application/json": {
-                    schema: (await resolver(CreateUserRequest).toOpenAPISchema()).schema
+                    schema: (await resolver(CreateUserRequest).toOpenAPISchema()).schema,
+                    example: {
+                        "username": "admin",
+                        "password": "admin",
+                        "password_confirmation": "admin",
+                        "email": "admin@admin.com"
+                    }
                 }
             }
         },
